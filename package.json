@@ -5,9 +5,8 @@
     "dev:workers": "wrangler dev",
     "dev:deno": "deno serve --port 8787 --watch src/deno.ts",
     "dev:node": "tsx --watch src/node.ts",
-    "client": "tsx src/client.ts",
-    "client:batch": "tsx src/client-batch.ts",
-    "deploy": "wrangler deploy --minify",
+    "client": "tsx client/client.ts",
+    "client:batch": "tsx client/client-batch.ts",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
