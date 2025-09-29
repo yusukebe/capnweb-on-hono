@@ -25,3 +25,9 @@ npm run dev:node
 ```console
 npm run client
 ```
+
+Batch:
+
+```console
+npm run client:batch
+```

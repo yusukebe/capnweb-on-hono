@@ -4,7 +4,7 @@ import { MyApiServer } from './my-api-server'
 
 const app = new Hono()
 
-app.get('/api', (c) => {
+app.all('/api', (c) => {
   return newWorkersRpcResponse(c.req.raw, new MyApiServer())
 })
 

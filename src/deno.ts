@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 import { upgradeWebSocket } from 'hono/deno'
-import { newWebSocketRpcSession } from 'capnweb'
+import { newHttpBatchRpcResponse, newWebSocketRpcSession } from 'capnweb'
 import { MyApiServer } from './my-api-server.ts'
 
 const app = new Hono()
@@ -15,5 +15,9 @@ app.get(
     }
   })
 )
+
+app.post('/api', (c) => {
+  return newHttpBatchRpcResponse(c.req.raw, new MyApiServer())
+})
 
 export default app
