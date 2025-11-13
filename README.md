@@ -14,6 +14,12 @@ Deno:
 npm run dev:deno
 ```
 
+Bun:
+
+```console
+npm run dev:bun
+```
+
 Node.js:
 
 ```console

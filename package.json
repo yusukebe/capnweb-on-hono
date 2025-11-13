@@ -4,6 +4,7 @@
   "scripts": {
     "dev:workers": "wrangler dev",
     "dev:deno": "deno serve --port 8787 --watch src/deno.ts",
+    "dev:bun": "bun run --watch src/bun.ts",
     "dev:node": "tsx --watch src/node.ts",
     "client": "tsx client/client.ts",
     "client:batch": "tsx client/client-batch.ts",

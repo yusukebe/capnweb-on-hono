@@ -1,12 +1,9 @@
 import { Hono } from 'hono'
-import { createNodeWebSocket } from '@hono/node-ws'
-import { serve } from '@hono/node-server'
+import { upgradeWebSocket, websocket } from 'hono/bun'
 import { MyApiServer } from './my-api-server'
 import { newRpcResponse } from '../middleware/capnweb'
 
 const app = new Hono()
-
-const { injectWebSocket, upgradeWebSocket } = createNodeWebSocket({ app })
 
 app.all('/api', (c) => {
   return newRpcResponse(c, new MyApiServer(), {
@@ -14,9 +11,8 @@ app.all('/api', (c) => {
   })
 })
 
-const server = serve({
+export default {
+  fetch: app.fetch,
   port: 8787,
-  fetch: app.fetch
-})
-
-injectWebSocket(server)
+  websocket
+}
