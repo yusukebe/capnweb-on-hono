@@ -13,7 +13,6 @@ class WebSocketAdapter extends EventTarget {
   send(...args: []) {
     return this.#ws.send(...args)
   }
-
   close(...args: []) {
     this.#ws.close(...args)
   }
